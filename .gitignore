@@ -1,0 +1,18 @@
+# Dependency directories
+node_modules/
+build/
+
+# Truffle build artifacts
+build/contracts/
+
+# Environment files
+.env
+
+# MacOS system files
+.DS_Store
+
+# Windows system files
+Thumbs.db
+
+# Linux system files
+.*swp
