@@ -4,23 +4,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Academic Record Storage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 10px;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <h1>Academic Record Storage</h1>
-    <label for="studentName">Student Name:</label>
-    <input type="text" id="studentName" required>
-    <br>
-    <label for="course">Course:</label>
-    <input type="text" id="course" required>
-    <br>
-    <label for="graduationYear">Graduation Year:</label>
-    <input type="number" id="graduationYear" required>
-    <br>
-    <label for="result">Result:</label>
-    <input type="text" id="result" required>
-    <br>
-    <button onclick="addRecord()">Add Academic Record</button>
+    <div class="container">
+        <h1>Academic Record Storage</h1>
+        <div class="form-group">
+            <label for="studentName">Student Name:</label>
+            <input type="text" id="studentName" required>
+        </div>
+        <div class="form-group">
+            <label for="course">Course:</label>
+            <input type="text" id="course" required>
+        </div>
+        <div class="form-group">
+            <label for="graduationYear">Graduation Year:</label>
+            <input type="number" id="graduationYear" required>
+        </div>
+        <div class="form-group">
+            <label for="result">Result:</label>
+            <input type="text" id="result" required>
+        </div>
+        <button type="button" onclick="addRecord()">Add Academic Record</button>
+    </div>
 
-    <script src="script.js"></script>
+    <script>
+        function addRecord() {
+            const studentName = document.getElementById('studentName').value;
+            const course = document.getElementById('course').value;
+            const graduationYear = document.getElementById('graduationYear').value;
+            const result = document.getElementById('result').value;
+
+            if (!studentName || !course || !graduationYear || !result) {
+                alert('Please fill in all fields.');
+                return;
+            }
+
+            alert(`Academic record for ${studentName} added successfully!`);
+        }
+    </script>
 </body>
 </html>
+
