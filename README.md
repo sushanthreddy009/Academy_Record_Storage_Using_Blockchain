@@ -7,6 +7,7 @@ Objective: Create a secure, tamper-proof academic record storage system.
 Technology Stack: Solidity, Truffle, Ethereum
 
 Project Highlights
+
 🔒 Unprecedented Security: Prioritizing data integrity, our system ensures tamper-proof academic records.
 
 🚀 Cutting-Edge Technology: Utilizing Solidity, Truffle, and Ethereum for a robust and efficient academic record management system.
