@@ -4,9 +4,11 @@ Academic Record Storage Using Blockchain
 Welcome to our groundbreaking project, revolutionizing academic record management through cutting-edge blockchain technology.
 
 Overview
+
 Objective: Create a secure, tamper-proof academic record storage system.
 
 Technology Stack: Solidity, Truffle, Ethereum
+
 
 Project Highlights
 
@@ -21,6 +23,7 @@ Usage
 2) Verify & Store: Securely store academic records on the blockchain with verification.
 3) Peace of Mind: Enjoy tamper-proof records for ultimate data security.
 4)Authenticate Easily: Verify records effortlessly for enhanced credibility.
+
 
 Contact
 Lead Developer: Sushanth Reddy
