@@ -8,39 +8,53 @@
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
-            padding: 10px;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
+
         .container {
-            background: #fff;
+            background-color: #fff;
             padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
         }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
         .form-group {
             margin-bottom: 15px;
         }
+
         label {
             display: block;
             margin-bottom: 5px;
+            color: #555;
         }
-        input[type="text"],
-        input[type="number"] {
+
+        input {
             width: 100%;
             padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
             box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
         }
+
         button {
-            background-color: #007bff;
-            color: white;
-            padding: 10px 15px;
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
-        }
-        button:hover {
-            background-color: #0056b3;
+            width: 100%;
         }
     </style>
 </head>
@@ -63,24 +77,38 @@
             <label for="result">Result:</label>
             <input type="text" id="result" required>
         </div>
-        <button type="button" onclick="addRecord()">Add Academic Record</button>
+        <button onclick="addRecord()">Add Academic Record</button>
     </div>
 
     <script>
-        function addRecord() {
+        async function addRecord() {
             const studentName = document.getElementById('studentName').value;
             const course = document.getElementById('course').value;
             const graduationYear = document.getElementById('graduationYear').value;
             const result = document.getElementById('result').value;
 
-            if (!studentName || !course || !graduationYear || !result) {
-                alert('Please fill in all fields.');
-                return;
-            }
+            try {
+                const response = await fetch('/addRecord', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ studentName, course, graduationYear, result }),
+                });
 
-            alert(`Academic record for ${studentName} added successfully!`);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                alert(`Record added successfully! Transaction Hash: ${data.transactionHash}`);
+            } catch (error) {
+                console.error('Error adding record:', error);
+                alert(`Error adding record: ${error.message}`);
+            }
         }
     </script>
 </body>
 </html>
+
 
